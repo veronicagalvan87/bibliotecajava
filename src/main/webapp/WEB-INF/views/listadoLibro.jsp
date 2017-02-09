@@ -21,16 +21,20 @@
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>Nombre</th>
+				<th>Título</th>
+				<th>Autor</th>
+				<th>Categoría</th>
 				<th>Editar</th>
 				<th>Borrar</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${autores}" var="autor">
-				<tr data-id="${autor.id}">
-					<td>${autor.id}</td>
-					<td><a href="<c:url value="/autores/autor/${autor.id}" />">${autor.nombre}</a></td>
+			<c:forEach items="${libros}" var="libro">
+				<tr data-id="${libro.id}">
+					<td>${libro.id}</td>
+					<td><a href="<c:url value="/libros/libro/${libro.id}" />">${libro.titulo}</a></td>
+					<td><a href="<c:url value="/autores/autor/${libro.autor.id}" />">${libro.autor.nombre}</a></td>
+					<td>${libro.categoria }</td>
 					<td><a class="editar-autor btn btn-warning">Editar</a></td>
 					<td><a class="btn btn-danger open-Modal"
 						data-nombre="${autor.nombre}" data-id="${autor.id}"
