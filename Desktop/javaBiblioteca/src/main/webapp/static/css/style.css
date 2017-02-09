@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.media-object 
+{
+	  -webkit-filter: grayscale(1);
+}
+.media-object:hover 
+{
+	  -webkit-filter: none;
+}
