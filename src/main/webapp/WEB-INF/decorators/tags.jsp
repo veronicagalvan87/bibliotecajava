@@ -45,13 +45,13 @@
 <body>
 	<div class="navbar">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">CSD</a>
+			<a class="navbar-brand" href="#">Biblioteca</a>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="<c:url value="/" />">Inicio</a></li>
 				<li><a href="<c:url value="/autores" />">Autores</a>
 				</li>
 				<li><a href="<c:url value="/libros" />">Libros</a></li>
-				<li><a href="<c:url value="/" />">Login</a></li>
+				<li><a href="<c:url value="/" />">Administración</a></li>
 			</ul>
 		</div>
 	</div>

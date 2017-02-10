@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -33,7 +34,8 @@
 				<tr data-id="${libro.id}">
 					<td>${libro.id}</td>
 					<td><a href="<c:url value="/libros/libro/${libro.id}" />">${libro.titulo}</a></td>
-					<td><a href="<c:url value="/autores/autor/${libro.autor.id}" />">${libro.autor.nombre}</a></td>
+					<td><a
+						href="<c:url value="/autores/autor/${libro.autor.id}" />">${libro.autor.nombre}</a></td>
 					<td>${libro.categoria }</td>
 					<td><a class="editar-autor btn btn-warning">Editar</a></td>
 					<td><a class="btn btn-danger open-Modal"
@@ -43,7 +45,7 @@
 			</c:forEach>
 			<tr>
 				<td colspan="5"><a class="btn btn-primary" data-toggle="modal"
-					href='#modal-autor'>Añadir autor</a></td>
+					href='#modal-autor'>Añadir libro</a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -52,20 +54,26 @@
 
 	<!-- empiezan la diversion -->
 
-	<div class="modal fade" id="modal-autor">
+	<div class="modal fade" id="modal-libro">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Añadir Autor</h4>
+					<h4 class="modal-title">Añadir Libro</h4>
 				</div>
-				<form method="POST" action="<c:url value="/autores"/>" role="form">
+				<form method="POST" action="<c:url value="/libros"/>" role="form">
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="Nombre">Nombre</label> <input type="text"
-								class="form-control" id="nombre-autor" name="nombre"
-								placeholder="Input field">
+							<label for="Nombre">Título</label> <input type="text"
+								class="form-control" id="titulo-libro" name="libro"
+								placeholder="Título del libro"> 
+							<label for="Nombre">Autor</label> <input type="text" 
+								class="form-control" id="titulo-libro"
+								name="libro" placeholder="Título del libro"> 
+							<label for="Nombre">Categoría</label> <input type="text"
+								class="form-control" id="titulo-libro" name="libro"
+								placeholder="Título del libro">
 						</div>
 						<input type="hidden" name="id" id="inputId" class="form-control"
 							value="">
