@@ -10,5 +10,5 @@ public interface LibroRepositorio extends JpaRepository<Libro, Long>{
 	
 	Iterable<Libro> findAllByAutor(Autor au);
 
-
+	Libro findFirstByAutorOrderByAutorDesc(Autor autor);
 }

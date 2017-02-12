@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.empleodigital.domain.entity.Autor;
 import org.empleodigital.domain.entity.Libro;
+import org.empleodigital.domain.enumeration.Category;
 import org.empleodigital.domain.propertyEditors.AutorPropertyEditor;
 import org.empleodigital.domain.repository.AutorRepositorio;
 import org.empleodigital.domain.repository.LibroRepositorio;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+
 @Controller
 @RequestMapping("/libros")
 public class LibroController {
@@ -38,9 +40,9 @@ public class LibroController {
 
 		@RequestMapping(method = RequestMethod.GET)
 		public String listarLibros(Model model) {
-			
 			model.addAttribute("libros",libroRepo.findAll());
-			model.addAllAttributes(autorRepo.findAll());
+			model.addAttribute("autores",autorRepo.findAll());
+			model.addAttribute("categorias", Category.values());
 			return "views/listadoLibro";
 		}
 		
@@ -50,7 +52,7 @@ public class LibroController {
 			libroRepo.save(li);
 			model.addAttribute("libros",libroRepo.findAll());
 			model.addAttribute("autores", autorRepo.findAll());
-			
+			model.addAttribute("categorias", Category.values());
 			return "views/listadoLibro";
 			
 		}

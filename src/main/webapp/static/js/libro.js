@@ -4,8 +4,8 @@ $(document).ready(function() {
 })
 
 var limpiarModal=function(){
-	$('.modal-title').text("Añadir Autor");
-	$('#nombre-jugador').val('');
+	$('.modal-title').text("Añadir Libro");
+	$('#titulo-libro').val('');
 	$('#inputId').val('');
 }
 
@@ -13,8 +13,8 @@ var cogerId=function(){
 	$(document).on("click", ".open-Modal", function() {
 		var putita = $(this).data('id');
 		var nomfede = $(this).data('nombre');
-		$(".modal-body #autor").val(putita);
-		$(".modal-body #autorNombre").text(nomfede);
+		$(".modal-body #libro").val(putita);
+		$(".modal-body #libroNombre").text(nomfede);
 	});
 }
 
@@ -22,9 +22,9 @@ var borraJug=function(){
 	cogerId();
 	
 	$(".btn-borrar").on("click", function() {
-		var id = $(".modal-body #autor").val();
+		var id = $(".modal-body #libro").val();
 		$.ajax({
-			url : "/javaBiblioteca/autores/" + id,
+			url : "/javaBiblioteca/libros/" + id,
 			
 			type : 'DELETE',
 			 error: function(xhr, status, error) {
@@ -43,21 +43,24 @@ var borraJug=function(){
 var editarJugador= function() {
 	cogerId();
 	
-	$(".editar-autor").on('click', function() {
+	$(".editar-libro").on('click', function() {
 		var id = $(this).parents('tr').data('id');
-		var url = '/javaBiblioteca/autores/' + id;
+		var url = '/javaBiblioteca/libros/' + id;
+		alert(id);
 
-		$.get(url).done(function(autor) {
+		$.get(url).done(function(libro) {
 			dataType: 'json',
-			$('.modal-title').text("Editar Autor");
-			$('#nombre-autor').val(autor.nombre);
+			$('.modal-title').text("Editar Libro");
+			$('#titulo-libro').val(libro.titulo);
+			$('#autor').val(libro.autor.id);
+			$('#categoria').val(libro.categoria);
+			$('#inputId').val(libro.id);
 			
-			$('#inputId').val(autor.id);
-			$('#modal-autor').modal('show');
+			$('#modal-libro').modal('show');
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 	        console.log("The following error occured: " + textStatus, errorThrown);
 	    });
-		$('#modal-autor').on('hide.bs.modal', limpiarModal);
+		$('#modal-libro').on('hide.bs.modal', limpiarModal);
 
 	})
 

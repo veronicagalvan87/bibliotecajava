@@ -3,6 +3,7 @@ package org.empleodigital.domain.entity;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Autor {
 	@NotEmpty 
 	private String nombre;
 	
-	@OneToMany(mappedBy="autor")
+	@OneToMany(mappedBy="autor",fetch = FetchType.EAGER)
 	private Set<Libro> libros;
 	
 	public Autor() {

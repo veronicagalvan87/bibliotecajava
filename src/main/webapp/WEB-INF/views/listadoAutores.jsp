@@ -9,10 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
-</head>
 <script type="text/javascript"
 	src="<c:url value="/static/js/autor.js" />"></script>
+</head>
+
 <body>
 
 
