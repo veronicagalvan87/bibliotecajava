@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -32,7 +33,8 @@
 				<tr data-id="${libro.id}">
 					<td>${libro.id}</td>
 					<td><a href="<c:url value="/libros/libro/${libro.id}" />">${libro.titulo}</a></td>
-					<td><a href="<c:url value="/autores/autor/${libro.autor.id}" />">${libro.autor.nombre}</a></td>
+					<td><a
+						href="<c:url value="/autores/autor/${libro.autor.id}" />">${libro.autor.nombre}</a></td>
 					<td>${libro.categoria }</td>
 					<td><a class="editar-libro btn btn-warning">Editar</a></td>
 					<td><a class="btn btn-danger open-Modal"
@@ -41,8 +43,7 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="5"><a class="btn btn-primary" data-toggle="modal"
-					href='#modal-libro'>Añadir libro</a></td>
+				<td colspan="5"><a class="btn btn-primary" data-toggle="modal" href='#modal-libro'>Añadir libro</a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -62,13 +63,18 @@
 				<form method="POST" action="<c:url value="/libros"/>" role="form">
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="Nombre">Título</label> <input type="text"
-								class="form-control" id="titulo-libro" name="titulo"
-								placeholder="Input field">
+							<label for="Nombre">Título</label> <input type="text" class="form-control"
+							id="titulo-libro" name="libro" placeholder="Título del libro"> <label
+								for="Nombre">Autor</label> <input type="text"
+								class="form-control" id="titulo-libro" name="libro"
+								placeholder="Título del libro"> <label for="Nombre">Categoría</label>
+							<input type="text" class="form-control" id="titulo-libro"
+								name="libro" placeholder="Título del libro"> >>>>>>>
+							25e57e2b5e38aab5744734ff4a6499039a80dc06
 						</div>
 						<div class="form-group">
-							<label for="autor">Autor</label> <select name="autor"
-								id="autor" class="form-control">
+							<label for="autor">Autor</label> <select name="autor" id="autor"
+								class="form-control">
 								<c:forEach items="${autores}" var="autor">
 
 									<option value="${autor.id}">${autor.nombre}</option>
@@ -77,7 +83,7 @@
 
 							</select>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="categoria">Categoria</label> <select name="categoria"
 								id="categoria" class="form-control">
@@ -89,7 +95,7 @@
 
 							</select>
 						</div>
-						
+
 						<input type="hidden" name="id" id="inputId" class="form-control"
 							value="">
 					</div>

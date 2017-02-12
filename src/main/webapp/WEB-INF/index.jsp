@@ -39,17 +39,17 @@
 				</div>
 			</c:if>
 			
-			<form action="${path}/autentificar" method="post">
+			<form action='<c:url value="/autenticar"/>' method="post">
 				<div class="panel-heading">
 					Biblioteca - Login
 				</div>
 				
 				<div class="panel-body">
 					<label for="usuario"></label>
-					<input id="usuario" name="usuario" class="form-control" required>
+					<input id="usuario" name="username" class="form-control" required>
 					
-					<label for="senha"></label>
-					<input type="password" id="contrasena" name="contrasena" class="form-control" required>
+					<label for="password"></label>
+					<input type="password" id="password" name="password" class="form-control" required>
 				</div>
 				
 				<div class="panel-footer">

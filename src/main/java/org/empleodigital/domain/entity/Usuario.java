@@ -14,7 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 @Entity  //javaPersistance
-public class Usuario extends User{
+public class Usuario  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,19 +40,6 @@ public class Usuario extends User{
 	@OneToMany(mappedBy="usuario")
 	private Set<Prestamo> prestamo;
 	
-	
-
-	public Usuario(String username, String password, boolean enabled, boolean accountNonExpired,
-			boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities) {
-		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Usuario(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-		super(username, password, authorities);
-		// TODO Auto-generated constructor stub
-	}
 
 	public Long getId() {
 		return id;
